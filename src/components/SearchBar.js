@@ -7,11 +7,12 @@ class SearchBar extends React.Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.handleSubmit(this.state.term);
   };
   render() {
     return (
       <div className="search-bar ui segment" style={{ marginTop: "2rem" }}>
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.handleSubmit}>
           <div className="field">
             <label>video search</label>
             <input
