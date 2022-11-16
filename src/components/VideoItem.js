@@ -1,15 +1,15 @@
 import "./VideoItem.css";
-const VideoItem = ({ video: { snippet, id } }) => {
+const VideoItem = ({ video, onVideoSelect }) => {
   return (
-    <div className="video-item item">
+    <div onClick={() => onVideoSelect(video)} className="video-item item">
       <img
-        src={snippet.thumbnails.medium.url}
-        alt={snippet.title}
-        key={id.videoId}
+        src={video.snippet.thumbnails.medium.url}
+        alt={video.snippet.title}
+        key={video.id.videoId}
         className="ui image"
       />
       <div className="content">
-        <div className="header">{snippet.title}</div>
+        <div className="header">{video.snippet.title}</div>
       </div>
     </div>
   );
